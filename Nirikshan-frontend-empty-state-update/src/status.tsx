@@ -1,0 +1,4 @@
+import {AlertTriangle,CheckCircle2,FileQuestion,Scale,ShieldAlert, type LucideIcon} from 'lucide-react'; import type {FinalStatus} from './types';
+export const statusConfig:Record<FinalStatus,{className:string;icon:LucideIcon;label:string}>={
+ 'COMPLIANT':{className:'success',icon:CheckCircle2,label:'Compliant'},'NON-COMPLIANT':{className:'danger',icon:ShieldAlert,label:'Non-compliant'},'REVIEW REQUIRED':{className:'warning',icon:AlertTriangle,label:'Review required'},'INSUFFICIENT EVIDENCE':{className:'muted',icon:FileQuestion,label:'Insufficient evidence'},'NOT APPLICABLE':{className:'neutral',icon:Scale,label:'Not applicable'}};
+export function StatusBadge({status}:{status:FinalStatus}){const s=statusConfig[status],I=s.icon;return <span className={`badge ${s.className}`}><I size={14}/>{s.label}</span>}
